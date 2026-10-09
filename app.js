@@ -48,97 +48,144 @@ const DEFAULT_STATE = {
       y: 1500
     },
 
-    // --- RUNNING: Detailed Full Marathon Route (Post-Half Marathon) ---
+    // --- RUNNING: Multi-Branch Full Marathon Route (Post-Half Marathon) ---
     {
       id: 'run_half',
       title: 'ハーフマラソン完走 (21.0975km)',
       category: 'running',
       icon: '🏅',
       stage: 'Step 1 (基準達成)',
-      desc: '21kmを持続して走り切る基本スタミナが完成。ここからフルマラソンへ挑戦！',
+      desc: '21kmを持続して走り切る基本スタミナが完成。ここからフルマラソン完走へ！',
       level: 1,
       maxLevel: 1,
       parentId: 'cal_root',
       x: 1500,
-      y: 1320
+      y: 1300
     },
+
+    // Branch A: Distance & Long Run (距離・ロング走)
     {
       id: 'run_25k',
-      title: '25km LSD (Long Slow Distance)',
+      title: '25km LSD走',
       category: 'running',
       icon: '👟',
-      stage: 'Step 2',
-      desc: 'ゆっくりペースで25km（約2時間半〜3時間）走り続け、脂質代謝と脚力を鍛える。',
+      stage: 'A-1 (距離)',
+      desc: 'ゆっくりペースで25km持続走。長時間走る基礎体力と脂肪燃焼脚を作る。',
+      level: 0,
+      maxLevel: 3,
+      parentId: 'run_half',
+      x: 1150,
+      y: 1080
+    },
+    {
+      id: 'run_30k',
+      title: '30km走 達成 (30kmの壁攻略)',
+      category: 'running',
+      icon: '⛰️',
+      stage: 'A-2 (最重要難所)',
+      desc: 'マラソン最大の難関「30kmの壁」を突破する実戦ロング走。',
+      level: 0,
+      maxLevel: 5,
+      parentId: 'run_25k',
+      x: 1150,
+      y: 860
+    },
+    {
+      id: 'run_35k',
+      title: '35km ロング走',
+      category: 'running',
+      icon: '🔥',
+      stage: 'A-3 (最終ロング)',
+      desc: '30km以降の疲れに打ち勝ち、ラストまで走力を維持する。',
+      level: 0,
+      maxLevel: 5,
+      parentId: 'run_30k',
+      x: 1150,
+      y: 640
+    },
+
+    // Branch B: Pacing & Speed (ペース・心肺強化)
+    {
+      id: 'run_pace10k',
+      title: '10km Mペース走',
+      category: 'running',
+      icon: '⏱️',
+      stage: 'B-1 (ペース定着)',
+      desc: '目標レースペース（Mペース）で10kmを持続して走る感覚を掴む。',
       level: 0,
       maxLevel: 3,
       parentId: 'run_half',
       x: 1500,
-      y: 1140
+      y: 1080
     },
     {
-      id: 'run_28k',
-      title: '28km ロング走 ＆ 補給ワーク',
-      category: 'running',
-      icon: '🍌',
-      stage: 'Step 3',
-      desc: 'レース本番を意識したエナジージェル補給・水分補給のタイミングを実践。',
-      level: 0,
-      maxLevel: 3,
-      parentId: 'run_25k',
-      x: 1500,
-      y: 960
-    },
-    {
-      id: 'run_30k',
-      title: '30km走 達成 (30kmの壁克服)',
-      category: 'running',
-      icon: '⛰️',
-      stage: 'Step 4 (最重要難所)',
-      desc: 'マラソン最大の壁「30km地点の疲労」を体験し、イーブンペースで走り切る。',
-      level: 0,
-      maxLevel: 5,
-      parentId: 'run_28k',
-      x: 1500,
-      y: 780
-    },
-    {
-      id: 'run_35k',
-      title: '35km ビルドアップ走',
+      id: 'run_bu15k',
+      title: '15km ビルドアップ走',
       category: 'running',
       icon: '⚡',
-      stage: 'Step 5',
-      desc: '後半の粘り強さを養うため、30km以降に少しペースを上げて走り切るトレーニング。',
-      level: 0,
-      maxLevel: 5,
-      parentId: 'run_30k',
-      x: 1500,
-      y: 600
-    },
-    {
-      id: 'run_taper',
-      title: 'レース直前 テーパリング (調整)',
-      category: 'running',
-      icon: '🌙',
-      stage: 'Step 6',
-      desc: '本番2〜3週間前から走行距離を落とし、疲労を完全調整してピークを合わせる。',
+      stage: 'B-2 (粘り強化)',
+      desc: '5kmごとに段階的にペースを上げ、後半スパートの粘り強さを養う。',
       level: 0,
       maxLevel: 3,
-      parentId: 'run_35k',
+      parentId: 'run_pace10k',
       x: 1500,
-      y: 420
+      y: 860
     },
+    {
+      id: 'run_pace20k',
+      title: '20km Mペース持続走',
+      category: 'running',
+      icon: '🎯',
+      stage: 'B-3 (本番想定)',
+      desc: '目標レースペースでハーフ相当の20kmを余裕を持って走り切る。',
+      level: 0,
+      maxLevel: 4,
+      parentId: 'run_bu15k',
+      x: 1500,
+      y: 640
+    },
+
+    // Branch C: Conditioning & Strength (コンディショニング・体幹補強)
+    {
+      id: 'run_stretch',
+      title: '股関節 ＆ ハムストリング・ストレッチ',
+      category: 'running',
+      icon: '🧘',
+      stage: 'C-1 (可動域)',
+      desc: '股関節と腿裏をケアし、ストライドの伸びと怪我防止を徹底。',
+      level: 0,
+      maxLevel: 3,
+      parentId: 'run_half',
+      x: 1850,
+      y: 1080
+    },
+    {
+      id: 'run_core',
+      title: '下半身 ＆ 体幹補強筋トレ',
+      category: 'running',
+      icon: '🏋️',
+      stage: 'C-2 (フォーム安定)',
+      desc: 'お尻と体幹を鍛え、長距離でもブレないフォームの体幹軸を作る。',
+      level: 0,
+      maxLevel: 3,
+      parentId: 'run_stretch',
+      x: 1850,
+      y: 860
+    },
+
+    // Master Node (D): Full Marathon Completion
     {
       id: 'run_full',
       title: 'フルマラソン完走 (42.195km)',
       category: 'running',
       icon: '👑',
-      stage: 'Step 7 (MASTER)',
-      desc: '42.195kmの感動的なゴールラインを完走！偉大なフルマラソンランナーへ。',
+      stage: 'MASTER',
+      desc: 'すべての準備を完遂し、42.195kmの感動的なゴールラインを完走！',
       level: 0,
       maxLevel: 5,
-      parentId: 'run_taper',
+      parentId: 'run_35k',
       x: 1500,
-      y: 240
+      y: 420
     },
 
     // --- CALISTHENICS: Handstand Push-Up Route ---
@@ -290,6 +337,168 @@ const DEFAULT_STATE = {
       parentId: 'cal_root',
       x: 1650,
       y: 1680
+    },
+
+    // --- LEG TRAINING ROUTE ---
+    {
+      id: 'leg_step1',
+      title: 'ノーマルスクワット ＆ ランジ',
+      category: 'calisthenics',
+      icon: '🦵',
+      stage: 'Step 1 (基礎脚力)',
+      desc: 'Lvl.1: 深さ太もも平行スクワット15回×2 / Lvl.2: ランジ左右各15回×2 / Lvl.3: 連続スクワット30回＋ランジ左右各20回(休憩なし完遂)',
+      level: 0,
+      maxLevel: 3,
+      parentId: 'cal_root',
+      x: 1100,
+      y: 1650
+    },
+    {
+      id: 'leg_step2',
+      title: 'ブルガリアンスクワット ＆ カーフレイズ',
+      category: 'calisthenics',
+      icon: '🦵',
+      stage: 'Step 2 (片脚軸力)',
+      desc: 'Lvl.1: ブルガリアン左右各10回×2 / Lvl.2: 左右各15回×3 / Lvl.3: 片脚カーフレイズ左右各20回×3',
+      level: 0,
+      maxLevel: 3,
+      parentId: 'leg_step1',
+      x: 900,
+      y: 1800
+    },
+    {
+      id: 'leg_step3',
+      title: 'アシストピストル ＆ ジャンプスクワット',
+      category: 'calisthenics',
+      icon: '⚡',
+      stage: 'Step 3 (爆発力)',
+      desc: 'Lvl.1: アシスト片脚スクワット各5回×3 / Lvl.2: ジャンプスクワット15回×3 / Lvl.3: 40cm椅子片脚立ち上がり各8回×3',
+      level: 0,
+      maxLevel: 3,
+      parentId: 'leg_step2',
+      x: 700,
+      y: 1950
+    },
+    {
+      id: 'leg_step4',
+      title: 'ピストルスクワット (完全片脚フルスクワット)',
+      category: 'calisthenics',
+      icon: '👑',
+      stage: 'Step 4 (MASTER)',
+      desc: 'Lvl.1: 片脚フルスクワット1回成功 / Lvl.2: 各3回×2 / Lvl.3: 各5回×3 / Lvl.4: 各8回×3 / Lvl.5: 各10回×3完全マスター！',
+      level: 0,
+      maxLevel: 5,
+      parentId: 'leg_step3',
+      x: 500,
+      y: 2100
+    },
+
+    // --- CORE TRAINING ROUTE ---
+    {
+      id: 'core_step1',
+      title: 'フロントプランク ＆ サイドプランク',
+      category: 'calisthenics',
+      icon: '🧘‍♂️',
+      stage: 'Step 1 (静的体幹)',
+      desc: 'Lvl.1: プランク30秒×3 / Lvl.2: サイドプランク左右各45秒×2 / Lvl.3: プランク60秒＋サイド各60秒(30秒休憩完遂)',
+      level: 0,
+      maxLevel: 3,
+      parentId: 'cal_root',
+      x: 1500,
+      y: 1750
+    },
+    {
+      id: 'core_step2',
+      title: 'レッグレイズ ＆ タックホローボディ',
+      category: 'calisthenics',
+      icon: '🧘‍♂️',
+      stage: 'Step 2 (腹筋・骨盤)',
+      desc: 'Lvl.1: 膝曲げレッグレイズ15回×3 / Lvl.2: 伸ばしたレッグレイズ15回×3 / Lvl.3: タックホローボディ30秒×3',
+      level: 0,
+      maxLevel: 3,
+      parentId: 'core_step1',
+      x: 1500,
+      y: 1950
+    },
+    {
+      id: 'core_step3',
+      title: 'ハンギングレッグレイズ (鉄棒吊り下げ)',
+      category: 'calisthenics',
+      icon: '🤸',
+      stage: 'Step 3 (下腹・腸腰筋)',
+      desc: 'Lvl.1: ぶら下がり膝上げ15回×3 / Lvl.2: 太もも90度レッグレイズ10回×3 / Lvl.3: つま先鉄棒タッチ(Toe to Bar) 8回×3',
+      level: 0,
+      maxLevel: 3,
+      parentId: 'core_step2',
+      x: 1500,
+      y: 2150
+    },
+    {
+      id: 'core_step4',
+      title: 'L-Sit (Lシット)',
+      category: 'calisthenics',
+      icon: '👑',
+      stage: 'Step 4 (MASTER)',
+      desc: 'Lvl.1: タックL-Sit 10秒×3 / Lvl.2: 片脚L-Sit 左右各10秒×3 / Lvl.3: 両脚L-Sit 10秒×3 / Lvl.4: 20秒×3 / Lvl.5: 30秒×3完全マスター！',
+      level: 0,
+      maxLevel: 5,
+      parentId: 'core_step3',
+      x: 1500,
+      y: 2350
+    },
+
+    // --- FLEXIBILITY ROUTE ---
+    {
+      id: 'flex_step1',
+      title: '全身基礎柔軟性 (硬さ解消)',
+      category: 'spirit',
+      icon: '🧘',
+      stage: 'Step 1 (基礎柔軟)',
+      desc: 'Lvl.1: 風呂上がり全身ストレッチ各30秒×2(週4日以上) / Lvl.2: 前屈で中指がつま先に触れる(30秒) / Lvl.3: ローランジ左右各45秒',
+      level: 0,
+      maxLevel: 3,
+      parentId: 'cal_root',
+      x: 1900,
+      y: 1650
+    },
+    {
+      id: 'flex_step2',
+      title: '可動域の拡大 (中級レベル)',
+      category: 'spirit',
+      icon: '🧘',
+      stage: 'Step 2 (可動域向上)',
+      desc: 'Lvl.1: 前屈で第2関節がつま先に触れる(30秒) / Lvl.2: 90/90股関節膝倒し左右各10回 / Lvl.3: パピーポーズで胸が床につく(30秒)',
+      level: 0,
+      maxLevel: 3,
+      parentId: 'flex_step1',
+      x: 2100,
+      y: 1800
+    },
+    {
+      id: 'flex_step3',
+      title: '高度な柔軟性 (上級レベル)',
+      category: 'spirit',
+      icon: '🧘',
+      stage: 'Step 3 (上級可動域)',
+      desc: 'Lvl.1: 前屈で両手のひら全体が床につく(30秒) / Lvl.2: 90度以上開脚前傾で両肘が床につく(30秒) / Lvl.3: ブリッジ肘伸ばし15秒',
+      level: 0,
+      maxLevel: 3,
+      parentId: 'flex_step2',
+      x: 2300,
+      y: 1950
+    },
+    {
+      id: 'flex_step4',
+      title: '全身可動域マスター (MASTER)',
+      category: 'spirit',
+      icon: '👑',
+      stage: 'Step 4 (MASTER)',
+      desc: 'Lvl.1: 開脚前屈でおでこが床につく(30秒) / Lvl.2: ブリッジ胸開き30秒 / Lvl.3〜5: 開脚前屈でお腹・胸・顎が完全に床ベタ付け(30秒)',
+      level: 0,
+      maxLevel: 5,
+      parentId: 'flex_step3',
+      x: 2500,
+      y: 2100
     }
   ],
 
@@ -354,7 +563,7 @@ function initLucideIcons() {
 
 // --- DATA PERSISTENCE & MIGRATION ---
 function loadData() {
-  const saved = localStorage.getItem('rpg_progression_data_v6');
+  const saved = localStorage.getItem('rpg_progression_data_v8');
   if (saved) {
     try {
       const parsed = JSON.parse(saved);
@@ -367,13 +576,14 @@ function loadData() {
       console.error('Failed to parse saved state:', e);
     }
   }
-  const v5Saved = localStorage.getItem('rpg_progression_data_v5');
-  if (v5Saved) {
+  const v7Saved = localStorage.getItem('rpg_progression_data_v7');
+  if (v7Saved) {
     try {
-      const parsed = JSON.parse(v5Saved);
+      const parsed = JSON.parse(v7Saved);
       if (parsed && parsed.nodes) {
-        parsed.routineCompletions = {};
-        parsed.player.streak = { current: 0, max: 0, lastDate: '' };
+        parsed.nodes = JSON.parse(JSON.stringify(DEFAULT_STATE.nodes));
+        if (!parsed.routineCompletions) parsed.routineCompletions = {};
+        if (!parsed.player.streak) parsed.player.streak = { current: 0, max: 0, lastDate: '' };
         return parsed;
       }
     } catch (e) {}
@@ -382,11 +592,13 @@ function loadData() {
   localStorage.removeItem('rpg_progression_data_v2');
   localStorage.removeItem('rpg_progression_data_v3');
   localStorage.removeItem('rpg_progression_data_v4');
+  localStorage.removeItem('rpg_progression_data_v5');
+  localStorage.removeItem('rpg_progression_data_v6');
   return JSON.parse(JSON.stringify(DEFAULT_STATE));
 }
 
 function saveData() {
-  localStorage.setItem('rpg_progression_data_v6', JSON.stringify(state));
+  localStorage.setItem('rpg_progression_data_v8', JSON.stringify(state));
   renderApp();
 }
 
@@ -1431,16 +1643,49 @@ function addPresetTree(type) {
   if (type === 'marathon') {
     const timestamp = Date.now();
     const mNodes = [
-      { id: `m_1_${timestamp}`, title: 'ハーフマラソン完走 (21.0975km)', category: 'running', icon: '🏅', stage: 'Step 1 (達成済)', desc: 'ハーフ完走の基本スタミナ。', level: 1, maxLevel: 1, parentId: 'cal_root', x: rootX, y: rootY - 180 },
-      { id: `m_2_${timestamp}`, title: '25km LSD (Long Slow Distance)', category: 'running', icon: '👟', stage: 'Step 2', desc: 'ゆっくりペースで25km持続走。', level: 0, maxLevel: 3, parentId: `m_1_${timestamp}`, x: rootX, y: rootY - 360 },
-      { id: `m_3_${timestamp}`, title: '28km ロング走 ＆ 補給ワーク', category: 'running', icon: '🍌', stage: 'Step 3', desc: '補給ジェルのタイミングとペース配分。', level: 0, maxLevel: 3, parentId: `m_2_${timestamp}`, x: rootX - 540 },
-      { id: `m_4_${timestamp}`, title: '30km走 達成 (30kmの壁克服)', category: 'running', icon: '⛰️', stage: 'Step 4', desc: '30km以降の脚疲労を攻略。', level: 0, maxLevel: 5, parentId: `m_3_${timestamp}`, x: rootX, y: rootY - 720 },
-      { id: `m_5_${timestamp}`, title: '35km ビルドアップ走', category: 'running', icon: '⚡', stage: 'Step 5', desc: '後半の粘りを養う。', level: 0, maxLevel: 5, parentId: `m_4_${timestamp}`, x: rootX, y: rootY - 900 },
-      { id: `m_6_${timestamp}`, title: 'レース直前 テーパリング (調整)', category: 'running', icon: '🌙', stage: 'Step 6', desc: '疲労を抜きピークを合わせる。', level: 0, maxLevel: 3, parentId: `m_5_${timestamp}`, x: rootX, y: rootY - 1080 },
-      { id: `m_7_${timestamp}`, title: 'フルマラソン完走 (42.195km)', category: 'running', icon: '👑', stage: 'Step 7 (MASTER)', desc: '42.195kmを完走！', level: 0, maxLevel: 5, parentId: `m_6_${timestamp}`, x: rootX, y: rootY - 1260 }
+      { id: `m_1_${timestamp}`, title: 'ハーフマラソン完走 (21.0975km)', category: 'running', icon: '🏅', stage: 'Step 1 (基準達成)', desc: 'ハーフ完走の基本スタミナ。', level: 1, maxLevel: 1, parentId: 'cal_root', x: rootX, y: rootY - 180 },
+      { id: `m_2_${timestamp}`, title: '25km LSD走', category: 'running', icon: '👟', stage: 'A-1 (距離)', desc: 'ゆっくりペースで25km持続走。', level: 0, maxLevel: 3, parentId: `m_1_${timestamp}`, x: rootX - 350, y: rootY - 360 },
+      { id: `m_3_${timestamp}`, title: '30km走 達成 (30kmの壁攻略)', category: 'running', icon: '⛰️', stage: 'A-2 (最重要難所)', desc: '30km地点の壁を突破。', level: 0, maxLevel: 5, parentId: `m_2_${timestamp}`, x: rootX - 350, y: rootY - 540 },
+      { id: `m_4_${timestamp}`, title: '35km ロング走', category: 'running', icon: '🔥', stage: 'A-3 (最終ロング)', desc: '30km以降の疲れに打ち勝つ。', level: 0, maxLevel: 5, parentId: `m_3_${timestamp}`, x: rootX - 350, y: rootY - 720 },
+      { id: `m_5_${timestamp}`, title: '10km Mペース走', category: 'running', icon: '⏱️', stage: 'B-1 (ペース定着)', desc: '目標ペースで10km走る。', level: 0, maxLevel: 3, parentId: `m_1_${timestamp}`, x: rootX, y: rootY - 360 },
+      { id: `m_6_${timestamp}`, title: '15km ビルドアップ走', category: 'running', icon: '⚡', stage: 'B-2 (粘り強化)', desc: '後半スパートの粘りを養う。', level: 0, maxLevel: 3, parentId: `m_5_${timestamp}`, x: rootX, y: rootY - 540 },
+      { id: `m_7_${timestamp}`, title: '20km Mペース持続走', category: 'running', icon: '🎯', stage: 'B-3 (本番想定)', desc: '本番ペースで20km走破。', level: 0, maxLevel: 4, parentId: `m_6_${timestamp}`, x: rootX, y: rootY - 720 },
+      { id: `m_8_${timestamp}`, title: '股関節 ＆ ハムストリング・ストレッチ', category: 'running', icon: '🧘', stage: 'C-1 (可動域)', desc: '股関節・腿裏の柔軟性ケア。', level: 0, maxLevel: 3, parentId: `m_1_${timestamp}`, x: rootX + 350, y: rootY - 360 },
+      { id: `m_9_${timestamp}`, title: '下半身 ＆ 体幹補強筋トレ', category: 'running', icon: '🏋️', stage: 'C-2 (フォーム安定)', desc: 'お尻と体幹軸の強化。', level: 0, maxLevel: 3, parentId: `m_8_${timestamp}`, x: rootX + 350, y: rootY - 540 },
+      { id: `m_10_${timestamp}`, title: 'フルマラソン完走 (42.195km)', category: 'running', icon: '👑', stage: 'MASTER', desc: '42.195kmを完走！', level: 0, maxLevel: 5, parentId: `m_4_${timestamp}`, x: rootX, y: rootY - 960 }
     ];
     state.nodes.push(...mNodes);
-    alert('🏃 ハーフ完走者向け フルマラソン挑戦ロードマップを追加しました！');
+    alert('🏃 フルマラソン挑戦ロードマップ（距離・ペース・ケア3系統）を追加しました！');
+  } else if (type === 'leg') {
+    const timestamp = Date.now();
+    const lNodes = [
+      { id: `l_1_${timestamp}`, title: 'ノーマルスクワット ＆ ランジ', category: 'calisthenics', icon: '🦵', stage: 'Step 1', desc: '基礎脚力。', level: 0, maxLevel: 3, parentId: 'cal_root', x: rootX - 400, y: rootY + 150 },
+      { id: `l_2_${timestamp}`, title: 'ブルガリアンスクワット ＆ カーフレイズ', category: 'calisthenics', icon: '🦵', stage: 'Step 2', desc: '片脚軸力。', level: 0, maxLevel: 3, parentId: `l_1_${timestamp}`, x: rootX - 600, y: rootY + 300 },
+      { id: `l_3_${timestamp}`, title: 'アシストピストル ＆ ジャンプスクワット', category: 'calisthenics', icon: '⚡', stage: 'Step 3', desc: '爆発力。', level: 0, maxLevel: 3, parentId: `l_2_${timestamp}`, x: rootX - 800, y: rootY + 450 },
+      { id: `l_4_${timestamp}`, title: 'ピストルスクワット (完全片脚フルスクワット)', category: 'calisthenics', icon: '👑', stage: 'Step 4 (MASTER)', desc: '片脚スクワットマスター！', level: 0, maxLevel: 5, parentId: `l_3_${timestamp}`, x: rootX - 1000, y: rootY + 600 }
+    ];
+    state.nodes.push(...lNodes);
+    alert('🦵 脚力・ピストルスクワット4段階ルートを追加しました！');
+  } else if (type === 'core') {
+    const timestamp = Date.now();
+    const cNodes = [
+      { id: `c_1_${timestamp}`, title: 'フロントプランク ＆ サイドプランク', category: 'calisthenics', icon: '🧘‍♂️', stage: 'Step 1', desc: '静的体幹。', level: 0, maxLevel: 3, parentId: 'cal_root', x: rootX, y: rootY + 250 },
+      { id: `c_2_${timestamp}`, title: 'レッグレイズ ＆ タックホローボディ', category: 'calisthenics', icon: '🧘‍♂️', stage: 'Step 2', desc: '腹筋・骨盤。', level: 0, maxLevel: 3, parentId: `c_1_${timestamp}`, x: rootX, y: rootY + 450 },
+      { id: `c_3_${timestamp}`, title: 'ハンギングレッグレイズ (鉄棒吊り下げ)', category: 'calisthenics', icon: '🤸', stage: 'Step 3', desc: '下腹・腸腰筋。', level: 0, maxLevel: 3, parentId: `c_2_${timestamp}`, x: rootX, y: rootY + 650 },
+      { id: `c_4_${timestamp}`, title: 'L-Sit (Lシット)', category: 'calisthenics', icon: '👑', stage: 'Step 4 (MASTER)', desc: 'L-Sitマスター！', level: 0, maxLevel: 5, parentId: `c_3_${timestamp}`, x: rootX, y: rootY + 850 }
+    ];
+    state.nodes.push(...cNodes);
+    alert('🧘‍♂️ 体幹・L-Sit4段階ルートを追加しました！');
+  } else if (type === 'flexibility') {
+    const timestamp = Date.now();
+    const fNodes = [
+      { id: `f_1_${timestamp}`, title: '全身基礎柔軟性 (硬さ解消)', category: 'spirit', icon: '🧘', stage: 'Step 1', desc: '基礎柔軟。', level: 0, maxLevel: 3, parentId: 'cal_root', x: rootX + 400, y: rootY + 150 },
+      { id: `f_2_${timestamp}`, title: '可動域の拡大 (中級レベル)', category: 'spirit', icon: '🧘', stage: 'Step 2', desc: '可動域向上。', level: 0, maxLevel: 3, parentId: `f_1_${timestamp}`, x: rootX + 600, y: rootY + 300 },
+      { id: `f_3_${timestamp}`, title: '高度な柔軟性 (上級レベル)', category: 'spirit', icon: '🧘', stage: 'Step 3', desc: '上級可動域。', level: 0, maxLevel: 3, parentId: `f_2_${timestamp}`, x: rootX + 800, y: rootY + 450 },
+      { id: `f_4_${timestamp}`, title: '全身可動域マスター (MASTER)', category: 'spirit', icon: '👑', stage: 'Step 4 (MASTER)', desc: '全身可動域マスター！', level: 0, maxLevel: 5, parentId: `f_3_${timestamp}`, x: rootX + 1000, y: rootY + 600 }
+    ];
+    state.nodes.push(...fNodes);
+    alert('🧘 全身柔軟性4段階ルートを追加しました！');
   } else {
     alert('該当のツリーを追加しました。');
   }
