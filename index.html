@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-Life RPG: Destiny Board & Progression System</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Chart.js for Radar Chart -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app" class="app-container">
+    <!-- Header / Player Info Bar -->
+    <header class="player-header">
+      <div class="header-left">
+        <div class="avatar-box" id="avatarBox" title="クリックして名前を変更">
+          <span class="avatar-icon">🤸</span>
+          <span class="level-badge" id="playerLevelBadge">Lv.1</span>
+        </div>
+        <div class="player-identity">
+          <div class="name-row">
+            <h1 id="playerName" class="player-name">Adventurer</h1>
+            <span id="playerTitle" class="player-title">【未熟な冒険者】</span>
+            <button id="editProfileBtn" class="icon-btn-small" title="プロフィール編集">✏️</button>
+          </div>
+          <div class="xp-bar-container">
+            <div class="xp-bar-fill" id="xpBarFill" style="width: 0%;"></div>
+            <span class="xp-text" id="xpText">0 / 100 XP</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <div class="currency-badge streak-badge" id="streakBadgeBox" title="連続クリア日数 (最高記録: 0日)">
+          <span class="currency-icon">🔥</span>
+          <span id="playerStreak" class="currency-amount">0</span>
+          <span class="currency-label">日連続</span>
+        </div>
+        <div class="currency-badge score-badge">
+          <span class="currency-icon">📊</span>
+          <span id="overallAvgScore" class="currency-amount">0.0</span>
+          <span class="currency-label">総合平均スコア</span>
+        </div>
+        <div class="currency-badge gold-badge">
+          <span class="currency-icon">🪙</span>
+          <span id="playerGold" class="currency-amount">0</span>
+          <span class="currency-label">G</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+      <button class="nav-tab active" data-tab="destiny">
+        <i data-lucide="compass"></i>
+        <span>デスティニーボード (段階ツリー)</span>
+      </button>
+      <button class="nav-tab" data-tab="status">
+        <i data-lucide="activity"></i>
+        <span>カテゴリ達成スコア</span>
+      </button>
+      <button class="nav-tab" data-tab="quests">
+        <i data-lucide="scroll"></i>
+        <span>曜日ルーティーン ＆ クエスト</span>
+      </button>
+      <button class="nav-tab" data-tab="shop">
+        <i data-lucide="shopping-bag"></i>
+        <span>ご褒美ショップ</span>
+      </button>
+      <button class="nav-tab" data-tab="settings">
+        <i data-lucide="settings"></i>
+        <span>データ管理</span>
+      </button>
+    </nav>
+
+    <!-- Main Content Panels -->
+    <main class="content-area">
+      <!-- 1. DESTINY BOARD TAB -->
+      <section id="tab-destiny" class="tab-panel active">
+        <div class="destiny-controls">
+          <div class="board-info">
+            <h2>デスティニーボード (技の段階ロードマップ)</h2>
+            <p>ノードをクリックでクリア・編集。ノードをドラッグして自由な位置に配置できます！</p>
+          </div>
+          <div class="board-actions">
+            <button id="addPresetTreeBtn" class="btn btn-gold">
+              <i data-lucide="zap"></i> 段階ツリーを追加 (自重技・ランニング)
+            </button>
+            <button id="addNodeBtn" class="btn btn-primary">
+              <i data-lucide="plus-circle"></i> ノード追加
+            </button>
+            <button id="resetViewBtn" class="btn btn-secondary">
+              <i data-lucide="maximize-2"></i> 視点リセット
+            </button>
+          </div>
+        </div>
+
+        <div class="destiny-board-viewport" id="boardViewport">
+          <div class="board-canvas-container" id="boardCanvasContainer">
+            <svg id="connectionsSvg" class="connections-svg">
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="28" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#f59e0b"/>
+                </marker>
+                <marker id="arrow-locked" viewBox="0 0 10 10" refX="28" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(255,255,255,0.2)"/>
+                </marker>
+              </defs>
+            </svg>
+            <div id="nodesContainer" class="nodes-container"></div>
+          </div>
+          <div class="viewport-hints">
+            <span>画面ドラッグで移動 / ホイールズーム / ノード直接ドラッグで位置変更</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. STATUS SHEET TAB -->
+      <section id="tab-status" class="tab-panel">
+        <div class="status-grid">
+          <div class="panel-card chart-card">
+            <h3>カテゴリ別 達成スコア (平均)</h3>
+            <div class="chart-container">
+              <canvas id="radarChart"></canvas>
+            </div>
+            <div class="title-summary">
+              <h4>現在の階級・称号</h4>
+              <p id="titleDescription">デスティニーボードのノードをクリアして平均スコアを高めよう。</p>
+            </div>
+          </div>
+
+          <div class="panel-card stats-card">
+            <div class="panel-header-inline">
+              <h3>カテゴリごとの進捗度</h3>
+            </div>
+            <div class="stats-list" id="categoryScoresList"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. QUEST LOG & WEEKLY ROUTINE TAB -->
+      <section id="tab-quests" class="tab-panel">
+        <div class="quests-header">
+          <div class="routine-selector-group">
+            <span class="routine-label">📅 表示曜日:</span>
+            <select id="weekdaySelect" class="weekday-select">
+              <option value="1">月曜日 (プランシェ ＋ 胸)</option>
+              <option value="2">火曜日 (懸垂)</option>
+              <option value="3">水曜日 (足トレ)</option>
+              <option value="4">木曜日 (逆立ち ＋ 腹筋)</option>
+              <option value="5">金曜日 (懸垂)</option>
+              <option value="6">土曜日 (ランニング)</option>
+              <option value="0">日曜日 (ストレッチ / ラン予備日)</option>
+            </select>
+          </div>
+          <button id="addQuestBtn" class="btn btn-primary">
+            <i data-lucide="plus-circle"></i> クエスト追加
+          </button>
+        </div>
+
+        <div class="quest-filters-bar mt-2">
+          <button class="filter-btn active" data-filter="all">すべて表示</button>
+          <button class="filter-btn" data-filter="routine">曜日限定ルーティーン</button>
+          <button class="filter-btn" data-filter="custom">通常・追加タスク</button>
+        </div>
+
+        <div class="quests-container" id="questsContainer"></div>
+      </section>
+
+      <!-- 4. REWARD SHOP TAB -->
+      <section id="tab-shop" class="tab-panel">
+        <div class="shop-header">
+          <div>
+            <h2>現実のご褒美ショップ</h2>
+            <p>溜まったゴールドを使って、自分への現実のご褒美を交換しよう！</p>
+          </div>
+          <button id="addRewardBtn" class="btn btn-primary">
+            <i data-lucide="plus"></i> ご褒美アイテム追加
+          </button>
+        </div>
+
+        <div class="rewards-grid" id="rewardsGrid"></div>
+      </section>
+
+      <!-- 5. SETTINGS TAB -->
+      <section id="tab-settings" class="tab-panel">
+        <div class="settings-grid">
+          <div class="panel-card">
+            <h3>データ保存 ＆ バックアップ</h3>
+            <p>アプリのデータはブラウザ（localStorage）に自動保存されます。バックアップ用にJSONデータを出力・復元できます。</p>
+            
+            <div class="settings-actions">
+              <button id="exportDataBtn" class="btn btn-primary">
+                <i data-lucide="download"></i> データを出力 (JSON)
+              </button>
+              <label class="btn btn-secondary file-input-label">
+                <i data-lucide="upload"></i> データを読み込み (JSON)
+                <input type="file" id="importDataInput" accept=".json" style="display: none;">
+              </label>
+            </div>
+          </div>
+
+          <div class="panel-card danger-zone">
+            <h3>リセット領域</h3>
+            <p>初期データ（自重技 ＋ フルマラソン ＋ 曜日ルーティーン）にリセットします。</p>
+            <button id="resetAllDataBtn" class="btn btn-danger">
+              <i data-lucide="trash-2"></i> 全データを初期化
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modals -->
+  <!-- 1. Node Detail & Upgrade Modal -->
+  <div id="nodeModal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <span class="node-icon-large" id="modalNodeIcon">🤸</span>
+        <div>
+          <h3 id="modalNodeTitle">ノード名</h3>
+          <span id="modalNodeCategory" class="badge">Category</span>
+        </div>
+        <button class="modal-close close-modal-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p id="modalNodeDesc">ノードの説明文</p>
+        
+        <div class="node-level-status">
+          <span>現在の段階・レベル: <strong id="modalNodeLevel">0 / 5</strong></span>
+          <div class="level-progress-bar">
+            <div id="modalNodeProgressFill" class="progress-fill"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer modal-footer-actions">
+        <button id="upgradeNodeBtn" class="btn btn-gold flex-grow">
+          ✨ クリア / ステップアップ
+        </button>
+        <button id="editNodeBtn" class="btn btn-secondary icon-only" title="このノードを編集">
+          ✏️ 編集
+        </button>
+        <button id="deleteNodeBtn" class="btn btn-danger icon-only" title="このノードを削除">
+          🗑️ 削除
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Add / Edit Node Modal -->
+  <div id="editNodeModal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="editNodeModalTitle">ステップ（ノード）の編集・追加</h3>
+        <button class="modal-close close-modal-btn">&times;</button>
+      </div>
+      <form id="nodeForm" class="modal-body form-grid">
+        <input type="hidden" id="editNodeId">
+        <div class="form-group">
+          <label>ステップ名 / 技名</label>
+          <input type="text" id="nodeNameInput" placeholder="例: 壁寄り倒立 30秒キープ" required>
+        </div>
+        <div class="form-group">
+          <label>段階ラベル (例: Step 1, 5km完走など)</label>
+          <input type="text" id="nodeStageInput" placeholder="例: Step 1">
+        </div>
+        <div class="form-group">
+          <label>カテゴリ</label>
+          <select id="nodeCategoryInput">
+            <option value="calisthenics">🤸 カリステニクス (自重技)</option>
+            <option value="running">🏃 ランニング (マラソン・有酸素)</option>
+            <option value="knowledge">🧠 知識・学習</option>
+            <option value="spirit">🧘 精神・日課</option>
+            <option value="creative">🎨 創作・スキル</option>
+            <option value="lifestyle">💰 生活・環境</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>アイコン (絵文字)</label>
+          <input type="text" id="nodeIconInput" placeholder="例: 🏃" required>
+        </div>
+        <div class="form-group">
+          <label>説明 / 達成条件</label>
+          <textarea id="nodeDescInput" placeholder="距離やペース、目標など"></textarea>
+        </div>
+        <div class="form-group">
+          <label>最大レベル (ステップ数)</label>
+          <input type="number" id="nodeMaxLevelInput" min="1" max="10" value="5">
+        </div>
+        <div class="form-group">
+          <label>前提ステップ (前段階ノード)</label>
+          <select id="nodeParentInput">
+            <option value="">(なし: スタートノード)</option>
+          </select>
+        </div>
+        <div class="modal-footer modal-footer-actions">
+          <button type="button" class="btn btn-secondary cancel-modal-btn flex-grow">キャンセル</button>
+          <button type="submit" class="btn btn-primary flex-grow">保存する</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Preset Tree Modal -->
+  <div id="presetModal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>段階ツリー (ロードマップ) の追加</h3>
+        <button class="modal-close close-modal-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>追加したいロードマップを選択してください：</p>
+        <div class="preset-options">
+          <button class="btn btn-secondary full-width preset-btn" data-preset="marathon">
+            🏃 フルマラソン完走 (42.195km) 6段階ロードマップ
+          </button>
+          <button class="btn btn-secondary full-width preset-btn mt-2" data-preset="handstand">
+            🤸 倒立腕立て伏せ (Handstand Push-up) 5段階ルート
+          </button>
+          <button class="btn btn-secondary full-width preset-btn mt-2" data-preset="muscleup">
+            🏋️ マッスルアップ (Muscle-up) 4段階ルート
+          </button>
+          <button class="btn btn-secondary full-width preset-btn mt-2" data-preset="frontlever">
+            🤸 フロントレバー (Front Lever) 4段階ルート
+          </button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary cancel-modal-btn full-width">閉じる</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quest Modal -->
+  <div id="questModal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>新しいカスタムタスクを追加</h3>
+        <button class="modal-close close-modal-btn">&times;</button>
+      </div>
+      <form id="questForm" class="modal-body form-grid">
+        <div class="form-group">
+          <label>タスク・クエスト名</label>
+          <input type="text" id="questTitleInput" placeholder="例: 補給ジェルを買う" required>
+        </div>
+        <div class="form-group">
+          <label>難易度</label>
+          <select id="questDifficultyInput">
+            <option value="EASY">EASY (獲得: 20 XP, 10 G)</option>
+            <option value="NORMAL" selected>NORMAL (獲得: 50 XP, 25 G)</option>
+            <option value="HARD">HARD (獲得: 120 XP, 60 G)</option>
+            <option value="BOSS">BOSS (獲得: 300 XP, 150 G)</option>
+          </select>
+        </div>
+        <div class="modal-footer modal-footer-actions">
+          <button type="button" class="btn btn-secondary cancel-modal-btn flex-grow">キャンセル</button>
+          <button type="submit" class="btn btn-primary flex-grow">追加する</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Add Reward Modal -->
+  <div id="rewardModal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>ご褒美アイテムを追加</h3>
+        <button class="modal-close close-modal-btn">&times;</button>
+      </div>
+      <form id="rewardForm" class="modal-body form-grid">
+        <div class="form-group">
+          <label>アイテム名</label>
+          <input type="text" id="rewardNameInput" placeholder="例: 新しいランニングシューズ」/ 銭湯" required>
+        </div>
+        <div class="form-group">
+          <label>アイコン (絵文字)</label>
+          <input type="text" id="rewardIconInput" placeholder="例: 👟" required>
+        </div>
+        <div class="form-group">
+          <label>必要ゴールド (G)</label>
+          <input type="number" id="rewardCostInput" min="10" value="100" required>
+        </div>
+        <div class="modal-footer modal-footer-actions">
+          <button type="button" class="btn btn-secondary cancel-modal-btn flex-grow">キャンセル</button>
+          <button type="submit" class="btn btn-primary flex-grow">追加する</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Profile Modal -->
+  <div id="profileModal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>プロフィール編集</h3>
+        <button class="modal-close close-modal-btn">&times;</button>
+      </div>
+      <form id="profileForm" class="modal-body form-grid">
+        <div class="form-group">
+          <label>冒険者名</label>
+          <input type="text" id="profileNameInput" required>
+        </div>
+        <div class="modal-footer modal-footer-actions">
+          <button type="button" class="btn btn-secondary cancel-modal-btn flex-grow">キャンセル</button>
+          <button type="submit" class="btn btn-primary flex-grow">更新</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- App Script -->
+  <script src="app.js"></script>
+</body>
+</html>
