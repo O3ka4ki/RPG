@@ -107,18 +107,27 @@
           <div class="board-canvas-container" id="boardCanvasContainer">
             <svg id="connectionsSvg" class="connections-svg">
               <defs>
-                <marker id="arrow" viewBox="0 0 10 10" refX="28" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <marker id="arrow" viewBox="0 0 10 10" refX="18" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
                   <path d="M 0 0 L 10 5 L 0 10 z" fill="#f59e0b"/>
                 </marker>
-                <marker id="arrow-locked" viewBox="0 0 10 10" refX="28" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <marker id="arrow-locked" viewBox="0 0 10 10" refX="18" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
                   <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(255,255,255,0.2)"/>
                 </marker>
               </defs>
             </svg>
             <div id="nodesContainer" class="nodes-container"></div>
           </div>
+
+          <!-- Floating Zoom Controls for Mobile & PC -->
+          <div class="zoom-controls">
+            <button type="button" class="zoom-btn" id="zoomInBtn" title="拡大 (＋)">＋</button>
+            <button type="button" class="zoom-btn" id="zoomResetBtn" title="100% リセット" style="font-size: 0.7rem;">100%</button>
+            <button type="button" class="zoom-btn" id="zoomOutBtn" title="縮小 (－)">－</button>
+            <button type="button" class="zoom-btn" id="zoomCenterBtn" title="中央へ戻す" style="font-size: 0.85rem;">🎯</button>
+          </div>
+
           <div class="viewport-hints">
-            <span>画面ドラッグで移動 / ホイールズーム / ノード直接ドラッグで位置変更</span>
+            <span>画面ドラッグで移動 / 2本指ピンチ・ホイール・右下ボタンでズーム / ノードドラッグで移動</span>
           </div>
         </div>
       </section>
@@ -225,7 +234,6 @@
   <div id="nodeModal" class="modal-overlay">
     <div class="modal-card">
       <div class="modal-header">
-        <span class="node-icon-large" id="modalNodeIcon">🤸</span>
         <div>
           <h3 id="modalNodeTitle">ノード名</h3>
           <span id="modalNodeCategory" class="badge">Category</span>
@@ -265,6 +273,7 @@
       </div>
       <form id="nodeForm" class="modal-body form-grid">
         <input type="hidden" id="editNodeId">
+        <input type="hidden" id="nodeIconInput" value="⭐">
         <div class="form-group">
           <label>ステップ名 / 技名</label>
           <input type="text" id="nodeNameInput" placeholder="例: 壁寄り倒立 30秒キープ" required>
@@ -276,17 +285,12 @@
         <div class="form-group">
           <label>カテゴリ</label>
           <select id="nodeCategoryInput">
-            <option value="calisthenics">🤸 カリステニクス (自重技)</option>
+            <option value="calisthenics">🤸 カリステニクス (自重技・柔軟)</option>
             <option value="running">🏃 ランニング (マラソン・有酸素)</option>
-            <option value="knowledge">🧠 知識・学習</option>
-            <option value="spirit">🧘 精神・日課</option>
-            <option value="creative">🎨 創作・スキル</option>
-            <option value="lifestyle">💰 生活・環境</option>
+            <option value="lifestyle">🏠 生活習慣 (健康・睡眠・日課)</option>
+            <option value="english">🔤 英語 (語学・English)</option>
+            <option value="economy">📈 経済 (マネー・投資・知識)</option>
           </select>
-        </div>
-        <div class="form-group">
-          <label>アイコン (絵文字)</label>
-          <input type="text" id="nodeIconInput" placeholder="例: 🏃" required>
         </div>
         <div class="form-group">
           <label>説明 / 達成条件</label>
@@ -325,6 +329,12 @@
           </button>
           <button class="btn btn-secondary full-width preset-btn mt-2" data-preset="handstand">
             🤸 倒立腕立て伏せ (Handstand Push-up) 5段階ルート
+          </button>
+          <button class="btn btn-secondary full-width preset-btn mt-2" data-preset="planche">
+            🤸 プランシェ (Planche) 5段階ロードマップ
+          </button>
+          <button class="btn btn-secondary full-width preset-btn mt-2" data-preset="muscleup">
+            🏋️ マッスルアップ (Muscle-Up) 5段階ロードマップ
           </button>
           <button class="btn btn-secondary full-width preset-btn mt-2" data-preset="leg">
             🦵 足トレ・ピストルスクワット (Pistol Squat) 4段階ルート
