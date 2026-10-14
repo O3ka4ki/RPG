@@ -60,48 +60,48 @@ const DEFAULT_STATE = {
       level: 1,
       maxLevel: 1,
       parentId: 'root_main',
-      x: 1300,
-      y: 1500
+      x: 1291,
+      y: 1432
     },
 
     // --- Branch 1-A: マッスルアップ (Muscle-Up Ray: 北西上方向 -115°) ---
-    { id: 'mu_1', title: 'ハイプルアップ (爆発的引き込み)', category: 'calisthenics', icon: '🏋️', stage: 'Step 1 (高位置引き込み)', desc: 'Lvl.1: 順手懸垂(Pull-up) 8回×3セット\nLvl.2: 胸タッチ懸垂(Chest-to-Bar) 5回×3セット\nLvl.3: みぞおち引き上げハイプルアップ 5回×3セット', level: 0, maxLevel: 3, parentId: 'cal_root', x: 1200, y: 1280 },
-    { id: 'mu_2', title: 'バーディップス (ストレートバー)', category: 'calisthenics', icon: '➖', stage: 'Step 2 (押し込み筋力)', desc: 'Lvl.1: 通常ディップス 10回×3セット\nLvl.2: ストレートバー・ディップス 8回×3セット (みぞおちがバーに触れる深さ)\nLvl.3: 深いストレートバー・ディップス 12回×3セット', level: 0, maxLevel: 3, parentId: 'mu_1', x: 1120, y: 1120 },
-    { id: 'mu_3', title: 'トランジション (乗り越え)', category: 'calisthenics', icon: '🔄', stage: 'Step 3 (切り替え・補助)', desc: 'Lvl.1: ネガティブ・マッスルアップ(ゆっくり5秒下ろし) 5回×3\nLvl.2: 強めのバンド補助 5回×3\nLvl.3: 弱めのバンド補助 5回×3\nLvl.4: 低いバーでジャンピング・マッスルアップ 5回×3', level: 0, maxLevel: 4, parentId: 'mu_2', x: 1050, y: 960 },
-    { id: 'mu_4', title: '自力マッスルアップ', category: 'calisthenics', icon: '⚡', stage: 'Step 4 (自力達成・反動あり)', desc: 'Lvl.1: 自力マッスルアップ 1回初成功！ (スイング使用可)\nLvl.2: 2回連続×2セット\nLvl.3: 3回連続×3セット達成！', level: 0, maxLevel: 3, parentId: 'mu_3', x: 970, y: 790 },
-    { id: 'mu_5', title: 'ストリクトMU (完全静止)', category: 'calisthenics', icon: '👑', stage: 'Step 5 (MASTER)', desc: 'Lvl.1: 反動・キッピング無しのストリクト 1回成功！\nLvl.2: ストリクト 2回連続×2セット\nLvl.3: ストリクト 3回連続×3セット完全マスター！', level: 0, maxLevel: 3, parentId: 'mu_4', x: 890, y: 630 },
+    { id: 'mu_1', title: 'ハイプルアップ (爆発的引き込み)', category: 'calisthenics', icon: '🏋️', stage: 'Step 1 (高位置引き込み)', desc: 'Lvl.1: 順手懸垂(Pull-up) 8回×3セット\nLvl.2: 胸タッチ懸垂(Chest-to-Bar) 5回×3セット\nLvl.3: みぞおち引き上げハイプルアップ 5回×3セット', level: 0, maxLevel: 3, parentId: 'cal_root', x: 1277, y: 1144 },
+    { id: 'mu_2', title: 'バーディップス (ストレートバー)', category: 'calisthenics', icon: '➖', stage: 'Step 2 (押し込み筋力)', desc: 'Lvl.1: 通常ディップス 10回×3セット\nLvl.2: ストレートバー・ディップス 8回×3セット (みぞおちがバーに触れる深さ)\nLvl.3: 深いストレートバー・ディップス 12回×3セット', level: 0, maxLevel: 3, parentId: 'mu_1', x: 1198, y: 1017 },
+    { id: 'mu_3', title: 'トランジション (乗り越え)', category: 'calisthenics', icon: '🔄', stage: 'Step 3 (切り替え・補助)', desc: 'Lvl.1: ネガティブ・マッスルアップ(ゆっくり5秒下ろし) 5回×3\nLvl.2: 強めのバンド補助 5回×3\nLvl.3: 弱めのバンド補助 5回×3\nLvl.4: 低いバーでジャンピング・マッスルアップ 5回×3', level: 0, maxLevel: 4, parentId: 'mu_2', x: 1118, y: 889 },
+    { id: 'mu_4', title: '自力マッスルアップ', category: 'calisthenics', icon: '⚡', stage: 'Step 4 (自力達成・反動あり)', desc: 'Lvl.1: 自力マッスルアップ 1回初成功！ (スイング使用可)\nLvl.2: 2回連続×2セット\nLvl.3: 3回連続×3セット達成！', level: 0, maxLevel: 3, parentId: 'mu_3', x: 1039, y: 762 },
+    { id: 'mu_5', title: 'ストリクトMU (完全静止)', category: 'calisthenics', icon: '👑', stage: 'Step 5 (MASTER)', desc: 'Lvl.1: 反動・キッピング無しのストリクト 1回成功！\nLvl.2: ストリクト 2回連続×2セット\nLvl.3: ストリクト 3回連続×3セット完全マスター！', level: 0, maxLevel: 3, parentId: 'mu_4', x: 959, y: 635 },
 
     // --- Branch 1-B: プランシェ (Planche Ray: 北西方向 -138°) ---
-    { id: 'pl_1', title: 'プランシェリーン (前傾姿勢)', category: 'calisthenics', icon: '📐', stage: 'Step 1 (前傾＆肩甲骨下転)', desc: 'Lvl.1: 腕を伸ばし肩甲骨を外転・押し出し 前傾保持 15秒×3\nLvl.2: さらに深めの前傾保持 20秒×3\nLvl.3: つま先立ちで限界まで前傾キープ 30秒×3', level: 0, maxLevel: 3, parentId: 'cal_root', x: 1170, y: 1380 },
-    { id: 'pl_2', title: 'タックプランシェ (通過点)', category: 'calisthenics', icon: '🧘', stage: 'Step 2 (短い通過点)', desc: 'Lvl.1: 膝を胸に引き寄せたタック位置で浮かし 5秒キープ×3\nLvl.2: タックプランシェ 10秒キープ×3\n※長くやり込まずアドバンスドへ短期間で移行！', level: 0, maxLevel: 2, parentId: 'pl_1', x: 1030, y: 1260 },
-    { id: 'pl_3', title: 'Advタックプランシェ (90度)', category: 'calisthenics', icon: '🤸', stage: 'Step 3 (股関節90度開脚キープ)', desc: 'Lvl.1: 背中を平らに保ち股関節90度 5秒ホールド×3\nLvl.2: 8秒ホールド×3\nLvl.3: 10秒ホールド×3\nLvl.4: 15秒ホールド×3 (強固な体幹・肩軸完成)', level: 0, maxLevel: 4, parentId: 'pl_2', x: 900, y: 1140 },
-    { id: 'pl_4', title: 'ストラドルプランシェ (開脚)', category: 'calisthenics', icon: '⚡', stage: 'Step 4 (バンド補助～自立)', desc: 'Lvl.1: 強めのチューブ(バンド)補助で開脚 10秒×3\nLvl.2: 弱めのバンド補助で 10秒×3\nLvl.3: バンドなし開脚浮かし 3秒×3\nLvl.4: バンドなし開脚 5秒キープ×3\nLvl.5: バンドなし開脚 10秒キープ×3', level: 0, maxLevel: 5, parentId: 'pl_3', x: 765, y: 1020 },
-    { id: 'pl_5', title: 'フルプランシェ (一本軸)', category: 'calisthenics', icon: '👑', stage: 'Step 5 (MASTER)', desc: 'Lvl.1: バンド補助付きフルプランシェ 10秒×3\nLvl.2: バンドなし自立フルプランシェ 3秒ホールド！\nLvl.3: 5秒ホールド×2\nLvl.4: 8秒ホールド×2\nLvl.5: 10秒完全静止マスター！', level: 0, maxLevel: 5, parentId: 'pl_4', x: 630, y: 900 },
+    { id: 'pl_1', title: 'プランシェリーン (前傾姿勢)', category: 'calisthenics', icon: '📐', stage: 'Step 1 (前傾＆肩甲骨下転)', desc: 'Lvl.1: 腕を伸ばし肩甲骨を外転・押し出し 前傾保持 15秒×3\nLvl.2: さらに深めの前傾保持 20秒×3\nLvl.3: つま先立ちで限界まで前傾キープ 30秒×3', level: 0, maxLevel: 3, parentId: 'cal_root', x: 1188, y: 1219 },
+    { id: 'pl_2', title: 'タックプランシェ (通過点)', category: 'calisthenics', icon: '🧘', stage: 'Step 2 (短い通過点)', desc: 'Lvl.1: 膝を胸に引き寄せたタック位置で浮かし 5秒キープ×3\nLvl.2: タックプランシェ 10秒キープ×3\n※長くやり込まずアドバンスドへ短期間で移行！', level: 0, maxLevel: 2, parentId: 'pl_1', x: 1076, y: 1119 },
+    { id: 'pl_3', title: 'Advタックプランシェ (90度)', category: 'calisthenics', icon: '🤸', stage: 'Step 3 (股関節90度開脚キープ)', desc: 'Lvl.1: 背中を平らに保ち股関節90度 5秒ホールド×3\nLvl.2: 8秒ホールド×3\nLvl.3: 10秒ホールド×3\nLvl.4: 15秒ホールド×3 (強固な体幹・肩軸完成)', level: 0, maxLevel: 4, parentId: 'pl_2', x: 965, y: 1018 },
+    { id: 'pl_4', title: 'ストラドルプランシェ (開脚)', category: 'calisthenics', icon: '⚡', stage: 'Step 4 (バンド補助～自立)', desc: 'Lvl.1: 強めのチューブ(バンド)補助で開脚 10秒×3\nLvl.2: 弱めのバンド補助で 10秒×3\nLvl.3: バンドなし開脚浮かし 3秒×3\nLvl.4: バンドなし開脚 5秒キープ×3\nLvl.5: バンドなし開脚 10秒キープ×3', level: 0, maxLevel: 5, parentId: 'pl_3', x: 853, y: 918 },
+    { id: 'pl_5', title: 'フルプランシェ (一本軸)', category: 'calisthenics', icon: '👑', stage: 'Step 5 (MASTER)', desc: 'Lvl.1: バンド補助付きフルプランシェ 10秒×3\nLvl.2: バンドなし自立フルプランシェ 3秒ホールド！\nLvl.3: 5秒ホールド×2\nLvl.4: 8秒ホールド×2\nLvl.5: 10秒完全静止マスター！', level: 0, maxLevel: 5, parentId: 'pl_4', x: 742, y: 817 },
 
     // --- Branch 1-C: 倒立腕立て伏せ (HSPU Ray: 西北西方向 -162°) ---
-    { id: 'hspu_1', title: 'パイクプッシュアップ', category: 'calisthenics', icon: '📐', stage: 'Step 1 (基礎肩筋力)', desc: 'Lvl.1: V字姿勢パイク 10回×3 / Lvl.2: 足上げエレベートパイク 10回×3 / Lvl.3: エレベートパイク(頭床タッチ) 15回×3', level: 0, maxLevel: 3, parentId: 'cal_root', x: 1060, y: 1420 },
-    { id: 'hspu_2', title: '壁倒立 60秒 (姿勢保持)', category: 'calisthenics', icon: '🧱', stage: 'Step 2 (姿勢＆保持)', desc: 'Lvl.1: 背中壁倒立 30秒×3 / Lvl.2: お腹壁倒立(一本軸) 45秒×3 / Lvl.3: お腹壁倒立 60秒ホールド×3', level: 0, maxLevel: 3, parentId: 'hspu_1', x: 890, y: 1370 },
-    { id: 'hspu_3', title: '壁倒立腕立て (壁サポート)', category: 'calisthenics', icon: '🤸', stage: 'Step 3 (壁押し込み)', desc: 'Lvl.1: 壁倒立ネガティブ5秒ゆっくり下ろし 5回×3 / Lvl.2: 壁倒立腕立て(クッション付き) 5回×3 / Lvl.3: 壁倒立腕立て(頭タッチフルレンジ) 8回×3 / Lvl.4: 壁倒立腕立て 10回×3', level: 0, maxLevel: 4, parentId: 'hspu_2', x: 720, y: 1310 },
-    { id: 'hspu_4', title: 'フリー倒立 (安全着地)', category: 'calisthenics', icon: '⚖️', stage: 'Step 4 (自立＆安全着地)', desc: 'Lvl.1: 自立倒立 5秒×3 / Lvl.2: 自立倒立 10秒×3 / Lvl.3: 安全な転倒(こけ)方・前転抜け/サイド抜け習得 / Lvl.4: 自立倒立 20秒×3 / Lvl.5: 自立倒立 30秒×3', level: 0, maxLevel: 5, parentId: 'hspu_3', x: 550, y: 1260 },
-    { id: 'hspu_5', title: 'フリー倒立腕立て (完成形)', category: 'calisthenics', icon: '👑', stage: 'Step 5 (MASTER)', desc: 'Lvl.1: 壁なし自立倒立から1回成功！ / Lvl.2: 自立倒立腕立て 2回×2 / Lvl.3: 3回×3 / Lvl.4: 5回×3 / Lvl.5: 8回×3完全マスター！', level: 0, maxLevel: 5, parentId: 'hspu_4', x: 380, y: 1200 },
+    { id: 'hspu_1', title: 'パイクプッシュアップ', category: 'calisthenics', icon: '📐', stage: 'Step 1 (基礎肩筋力)', desc: 'Lvl.1: V字姿勢パイク 10回×3 / Lvl.2: 足上げエレベートパイク 10回×3 / Lvl.3: エレベートパイク(頭床タッチ) 15回×3', level: 0, maxLevel: 3, parentId: 'cal_root', x: 1123, y: 1316 },
+    { id: 'hspu_2', title: '壁倒立 60秒 (姿勢保持)', category: 'calisthenics', icon: '🧱', stage: 'Step 2 (姿勢＆保持)', desc: 'Lvl.1: 背中壁倒立 30秒×3 / Lvl.2: お腹壁倒立(一本軸) 45秒×3 / Lvl.3: お腹壁倒立 60秒ホールド×3', level: 0, maxLevel: 3, parentId: 'hspu_1', x: 988, y: 1250 },
+    { id: 'hspu_3', title: '壁倒立腕立て (壁サポート)', category: 'calisthenics', icon: '🤸', stage: 'Step 3 (壁押し込み)', desc: 'Lvl.1: 壁倒立ネガティブ5秒ゆっくり下ろし 5回×3 / Lvl.2: 壁倒立腕立て(クッション付き) 5回×3 / Lvl.3: 壁倒立腕立て(頭タッチフルレンジ) 8回×3 / Lvl.4: 壁倒立腕立て 10回×3', level: 0, maxLevel: 4, parentId: 'hspu_2', x: 853, y: 1184 },
+    { id: 'hspu_4', title: 'フリー倒立 (安全着地)', category: 'calisthenics', icon: '⚖️', stage: 'Step 4 (自立＆安全着地)', desc: 'Lvl.1: 自立倒立 5秒×3 / Lvl.2: 自立倒立 10秒×3 / Lvl.3: 安全な転倒(こけ)方・前転抜け/サイド抜け習得 / Lvl.4: 自立倒立 20秒×3 / Lvl.5: 自立倒立 30秒×3', level: 0, maxLevel: 5, parentId: 'hspu_3', x: 718, y: 1119 },
+    { id: 'hspu_5', title: 'フリー倒立腕立て (完成形)', category: 'calisthenics', icon: '👑', stage: 'Step 5 (MASTER)', desc: 'Lvl.1: 壁なし自立倒立から1回成功！ / Lvl.2: 自立倒立腕立て 2回×2 / Lvl.3: 3回×3 / Lvl.4: 5回×3 / Lvl.5: 8回×3完全マスター！', level: 0, maxLevel: 5, parentId: 'hspu_4', x: 583, y: 1053 },
 
     // --- Branch 1-D: 全身柔軟性 (Flexibility Ray: 真西方向 180° 水平直線) ---
-    { id: 'flex_step1', title: '基礎柔軟性 (硬さ解消)', category: 'calisthenics', icon: '🧘', stage: 'Step 1 (基礎柔軟)', desc: 'Lvl.1: 風呂上がり全身ストレッチ各30秒×2(週4日以上) / Lvl.2: 前屈で中指がつま先に触れる(30秒) / Lvl.3: ローランジ左右各45秒', level: 0, maxLevel: 3, parentId: 'cal_root', x: 1120, y: 1500 },
-    { id: 'flex_step2', title: '可動域拡大 (中級)', category: 'calisthenics', icon: '🧘', stage: 'Step 2 (可動域向上)', desc: 'Lvl.1: 前屈で第2関節がつま先に触れる(30秒) / Lvl.2: 90/90股関節膝倒し左右各10回 / Lvl.3: パピーポーズで胸が床につく(30秒)', level: 0, maxLevel: 3, parentId: 'flex_step1', x: 940, y: 1500 },
-    { id: 'flex_step3', title: '高度な柔軟性 (上級)', category: 'calisthenics', icon: '🧘', stage: 'Step 3 (上級可動域)', desc: 'Lvl.1: 前屈で両手のひら全体が床につく(30秒) / Lvl.2: 90度以上開脚前傾で両肘が床につく(30秒) / Lvl.3: ブリッジ肘伸ばし15秒', level: 0, maxLevel: 3, parentId: 'flex_step2', x: 760, y: 1500 },
-    { id: 'flex_step4', title: '全身可動域マスター', category: 'calisthenics', icon: '👑', stage: 'Step 4 (MASTER)', desc: 'Lvl.1: 開脚前屈でおでこが床につく(30秒) / Lvl.2: ブリッジ胸開き30秒 / Lvl.3〜5: 開脚前屈でお腹・胸・顎が完全に床ベタ付け(30秒)', level: 0, maxLevel: 5, parentId: 'flex_step3', x: 580, y: 1500 },
+    { id: 'flex_step1', title: '基礎柔軟性 (硬さ解消)', category: 'calisthenics', icon: '🧘', stage: 'Step 1 (基礎柔軟)', desc: 'Lvl.1: 風呂上がり全身ストレッチ各30秒×2(週4日以上) / Lvl.2: 前屈で中指がつま先に触れる(30秒) / Lvl.3: ローランジ左右各45秒', level: 0, maxLevel: 3, parentId: 'cal_root', x: 1086, y: 1427 },
+    { id: 'flex_step2', title: '可動域拡大 (中級)', category: 'calisthenics', icon: '🧘', stage: 'Step 2 (可動域向上)', desc: 'Lvl.1: 前屈で第2関節がつま先に触れる(30秒) / Lvl.2: 90/90股関節膝倒し左右各10回 / Lvl.3: パピーポーズで胸が床につく(30秒)', level: 0, maxLevel: 3, parentId: 'flex_step1', x: 939, y: 1401 },
+    { id: 'flex_step3', title: '高度な柔軟性 (上級)', category: 'calisthenics', icon: '🧘', stage: 'Step 3 (上級可動域)', desc: 'Lvl.1: 前屈で両手のひら全体が床につく(30秒) / Lvl.2: 90度以上開脚前傾で両肘が床につく(30秒) / Lvl.3: ブリッジ肘伸ばし15秒', level: 0, maxLevel: 3, parentId: 'flex_step2', x: 791, y: 1375 },
+    { id: 'flex_step4', title: '全身可動域マスター', category: 'calisthenics', icon: '👑', stage: 'Step 4 (MASTER)', desc: 'Lvl.1: 開脚前屈でおでこが床につく(30秒) / Lvl.2: ブリッジ胸開き30秒 / Lvl.3〜5: 開脚前屈でお腹・胸・顎が完全に床ベタ付け(30秒)', level: 0, maxLevel: 5, parentId: 'flex_step3', x: 643, y: 1349 },
 
     // --- Branch 1-E: 足トレ (Leg Training Ray: 西南西方向 162°) ---
-    { id: 'leg_step1', title: 'スクワット＆ランジ', category: 'calisthenics', icon: '🦵', stage: 'Step 1 (基礎脚力)', desc: 'Lvl.1: 深さ太もも平行スクワット15回×2 / Lvl.2: ランジ左右各15回×2 / Lvl.3: 連続スクワット30回＋ランジ左右各20回(休憩なし完遂)', level: 0, maxLevel: 3, parentId: 'cal_root', x: 1060, y: 1580 },
-    { id: 'leg_step2', title: 'ブルガリアン＆カーフ', category: 'calisthenics', icon: '🦵', stage: 'Step 2 (片脚軸力)', desc: 'Lvl.1: ブルガリアン左右各10回×2 / Lvl.2: 左右各15回×3 / Lvl.3: 片脚カーフレイズ左右各20回×3', level: 0, maxLevel: 3, parentId: 'leg_step1', x: 890, y: 1630 },
-    { id: 'leg_step3', title: 'アシストピストル', category: 'calisthenics', icon: '⚡', stage: 'Step 3 (爆発力)', desc: 'Lvl.1: アシスト片脚スクワット各5回×3 / Lvl.2: ジャンプスクワット15回×3 / Lvl.3: 40cm椅子片脚立ち上がり各8回×3', level: 0, maxLevel: 3, parentId: 'leg_step2', x: 720, y: 1690 },
-    { id: 'leg_step4', title: 'ピストルスクワット', category: 'calisthenics', icon: '👑', stage: 'Step 4 (MASTER)', desc: 'Lvl.1: 片脚フルスクワット1回成功 / Lvl.2: 各3回×2 / Lvl.3: 各5回×3 / Lvl.4: 各8回×3 / Lvl.5: 各10回×3完全マスター！', level: 0, maxLevel: 5, parentId: 'leg_step3', x: 550, y: 1740 },
+    { id: 'leg_step1', title: 'スクワット＆ランジ', category: 'calisthenics', icon: '🦵', stage: 'Step 1 (基礎脚力)', desc: 'Lvl.1: 深さ太もも平行スクワット15回×2 / Lvl.2: ランジ左右各15回×2 / Lvl.3: 連続スクワット30回＋ランジ左右各20回(休憩なし完遂)', level: 0, maxLevel: 3, parentId: 'cal_root', x: 1082, y: 1544 },
+    { id: 'leg_step2', title: 'ブルガリアン＆カーフ', category: 'calisthenics', icon: '🦵', stage: 'Step 2 (片脚軸力)', desc: 'Lvl.1: ブルガリアン左右各10回×2 / Lvl.2: 左右各15回×3 / Lvl.3: 片脚カーフレイズ左右各20回×3', level: 0, maxLevel: 3, parentId: 'leg_step1', x: 933, y: 1560 },
+    { id: 'leg_step3', title: 'アシストピストル', category: 'calisthenics', icon: '⚡', stage: 'Step 3 (爆発力)', desc: 'Lvl.1: アシスト片脚スクワット各5回×3 / Lvl.2: ジャンプスクワット15回×3 / Lvl.3: 40cm椅子片脚立ち上がり各8回×3', level: 0, maxLevel: 3, parentId: 'leg_step2', x: 784, y: 1575 },
+    { id: 'leg_step4', title: 'ピストルスクワット', category: 'calisthenics', icon: '👑', stage: 'Step 4 (MASTER)', desc: 'Lvl.1: 片脚フルスクワット1回成功 / Lvl.2: 各3回×2 / Lvl.3: 各5回×3 / Lvl.4: 各8回×3 / Lvl.5: 各10回×3完全マスター！', level: 0, maxLevel: 5, parentId: 'leg_step3', x: 635, y: 1591 },
 
     // --- Branch 1-F: 体幹トレ (Core Training Ray: 南西方向 138°) ---
-    { id: 'core_step1', title: 'プランク (静的体幹)', category: 'calisthenics', icon: '🧘‍♂️', stage: 'Step 1 (静的体幹)', desc: 'Lvl.1: プランク30秒×3 / Lvl.2: サイドプランク左右各45秒×2 / Lvl.3: プランク60秒＋サイド各60秒(30秒休憩完遂)', level: 0, maxLevel: 3, parentId: 'cal_root', x: 1170, y: 1620 },
-    { id: 'core_step2', title: 'レッグレイズ (腹筋骨盤)', category: 'calisthenics', icon: '🧘‍♂️', stage: 'Step 2 (腹筋・骨盤)', desc: 'Lvl.1: 膝曲げレッグレイズ15回×3 / Lvl.2: 伸ばしたレッグレイズ15回×3 / Lvl.3: タックホローボディ30秒×3', level: 0, maxLevel: 3, parentId: 'core_step1', x: 1030, y: 1740 },
-    { id: 'core_step3', title: 'ハンギングレッグ (鉄棒)', category: 'calisthenics', icon: '🤸', stage: 'Step 3 (下腹・腸腰筋)', desc: 'Lvl.1: ぶら下がり膝上げ15回×3 / Lvl.2: 太もも90度レッグレイズ10回×3 / Lvl.3: つま先鉄棒タッチ(Toe to Bar) 8回×3', level: 0, maxLevel: 3, parentId: 'core_step2', x: 900, y: 1860 },
-    { id: 'core_step4', title: 'L-Sit (Lシット完成)', category: 'calisthenics', icon: '👑', stage: 'Step 4 (MASTER)', desc: 'Lvl.1: タックL-Sit 10秒×3 / Lvl.2: 片脚L-Sit 左右各10秒×3 / Lvl.3: 両脚L-Sit 10秒×3 / Lvl.4: 20秒×3 / Lvl.5: 30秒×3完全マスター！', level: 0, maxLevel: 5, parentId: 'core_step3', x: 765, y: 1980 },
+    { id: 'core_step1', title: 'プランク (静的体幹)', category: 'calisthenics', icon: '🧘‍♂️', stage: 'Step 1 (静的体幹)', desc: 'Lvl.1: プランク30秒×3 / Lvl.2: サイドプランク左右各45秒×2 / Lvl.3: プランク60秒＋サイド各60秒(30秒休憩完遂)', level: 0, maxLevel: 3, parentId: 'cal_root', x: 1111, y: 1657 },
+    { id: 'core_step2', title: 'レッグレイズ (腹筋骨盤)', category: 'calisthenics', icon: '🧘‍♂️', stage: 'Step 2 (腹筋・骨盤)', desc: 'Lvl.1: 膝曲げレッグレイズ15回×3 / Lvl.2: 伸ばしたレッグレイズ15回×3 / Lvl.3: タックホローボディ30秒×3', level: 0, maxLevel: 3, parentId: 'core_step1', x: 972, y: 1714 },
+    { id: 'core_step3', title: 'ハンギングレッグ (鉄棒)', category: 'calisthenics', icon: '🤸', stage: 'Step 3 (下腹・腸腰筋)', desc: 'Lvl.1: ぶら下がり膝上げ15回×3 / Lvl.2: 太もも90度レッグレイズ10回×3 / Lvl.3: つま先鉄棒タッチ(Toe to Bar) 8回×3', level: 0, maxLevel: 3, parentId: 'core_step2', x: 832, y: 1770 },
+    { id: 'core_step4', title: 'L-Sit (Lシット完成)', category: 'calisthenics', icon: '👑', stage: 'Step 4 (MASTER)', desc: 'Lvl.1: タックL-Sit 10秒×3 / Lvl.2: 片脚L-Sit 左右各10秒×3 / Lvl.3: 両脚L-Sit 10秒×3 / Lvl.4: 20秒×3 / Lvl.5: 30秒×3完全マスター！', level: 0, maxLevel: 5, parentId: 'core_step3', x: 693, y: 1826 },
 
     // ==========================================
     // 2. 🏃 ランニング (マラソン・有酸素) [NORTH RAYS: 真上および左右放射状]
@@ -122,21 +122,21 @@ const DEFAULT_STATE = {
 
     // Branch 2-A: ペース・心肺強化 ＆ フルマラソン完走 (真上垂直レイ -90°)
     { id: 'run_pace10k', title: '10km Mペース走', category: 'running', icon: '⏱️', stage: 'B-1 (ペース定着)', desc: '目標レースペース（Mペース）で10kmを持続して走る感覚を掴む。', level: 0, maxLevel: 3, parentId: 'run_half', x: 1500, y: 1080 },
-    { id: 'run_bu15k', title: '15km ビルドアップ走', category: 'running', icon: '⚡', stage: 'B-2 (粘り強化)', desc: '5kmごとに段階的にペースを上げ、後半スパートの粘り強さを養う。', level: 0, maxLevel: 3, parentId: 'run_pace10k', x: 1500, y: 880 },
-    { id: 'run_pace20k', title: '20km Mペース持続走', category: 'running', icon: '🎯', stage: 'B-3 (本番想定)', desc: '目標レースペースでハーフ相当の20kmを余裕を持って走り切る。', level: 0, maxLevel: 4, parentId: 'run_bu15k', x: 1500, y: 680 },
-    { id: 'run_full', title: 'フルマラソン完走 (42.195km)', category: 'running', icon: '👑', stage: 'MASTER', desc: 'すべての準備を完遂し、42.195kmの感動的なゴールラインを完走！', level: 0, maxLevel: 5, parentId: 'run_pace20k', x: 1500, y: 480 },
+    { id: 'run_bu15k', title: '15km ビルドアップ走', category: 'running', icon: '⚡', stage: 'B-2 (粘り強化)', desc: '5kmごとに段階的にペースを上げ、後半スパートの粘り強さを養う。', level: 0, maxLevel: 3, parentId: 'run_pace10k', x: 1500, y: 930 },
+    { id: 'run_pace20k', title: '20km Mペース持続走', category: 'running', icon: '🎯', stage: 'B-3 (本番想定)', desc: '目標レースペースでハーフ相当の20kmを余裕を持って走り切る。', level: 0, maxLevel: 4, parentId: 'run_bu15k', x: 1500, y: 780 },
+    { id: 'run_full', title: 'フルマラソン完走 (42.195km)', category: 'running', icon: '👑', stage: 'MASTER', desc: 'すべての準備を完遂し、42.195kmの感動的なゴールラインを完走！', level: 0, maxLevel: 5, parentId: 'run_pace20k', x: 1500, y: 630 },
 
     // Branch 2-B: 距離・ロング走 (北北西レイ -125°)
-    { id: 'run_25k', title: '25km LSD走', category: 'running', icon: '👟', stage: 'A-1 (距離)', desc: 'ゆっくりペースで25km持続走。長時間走る基礎体力と脂肪燃焼脚を作る。', level: 0, maxLevel: 3, parentId: 'run_half', x: 1390, y: 1120 },
-    { id: 'run_30k', title: '30km走 達成 (30kmの壁攻略)', category: 'running', icon: '⛰️', stage: 'A-2 (最重要難所)', desc: 'マラソン最大の難関「30kmの壁」を突破する実戦ロング走。', level: 0, maxLevel: 5, parentId: 'run_25k', x: 1280, y: 970 },
-    { id: 'run_35k', title: '35km ロング走', category: 'running', icon: '🔥', stage: 'A-3 (最終ロング)', desc: '30km以降の疲れに打ち勝ち、ラストまで走力を維持する。', level: 0, maxLevel: 5, parentId: 'run_30k', x: 1170, y: 810 },
+    { id: 'run_25k', title: '25km LSD走', category: 'running', icon: '👟', stage: 'A-1 (距離)', desc: 'ゆっくりペースで25km持続走。長時間走る基礎体力と脂肪燃焼脚を作る。', level: 0, maxLevel: 3, parentId: 'run_half', x: 1384, y: 1096 },
+    { id: 'run_30k', title: '30km走 達成 (30kmの壁攻略)', category: 'running', icon: '⛰️', stage: 'A-2 (最重要難所)', desc: 'マラソン最大の難関「30kmの壁」を突破する実戦ロング走。', level: 0, maxLevel: 5, parentId: 'run_25k', x: 1343, y: 952 },
+    { id: 'run_35k', title: '35km ロング走', category: 'running', icon: '🔥', stage: 'A-3 (最終ロング)', desc: '30km以降の疲れに打ち勝ち、ラストまで走力を維持する。', level: 0, maxLevel: 5, parentId: 'run_30k', x: 1302, y: 808 },
 
     // Branch 2-C: コンディショニング・体幹補強 (北北東レイ -55°)
-    { id: 'run_stretch', title: '股関節 ＆ ハムストリング・ストレッチ', category: 'running', icon: '🧘', stage: 'C-1 (可動域)', desc: '股関節と腿裏をケアし、ストライドの伸びと怪我防止を徹底。', level: 0, maxLevel: 3, parentId: 'run_half', x: 1610, y: 1120 },
-    { id: 'run_core', title: '下半身 ＆ 体幹補強筋トレ', category: 'running', icon: '🏋️', stage: 'C-2 (フォーム安定)', desc: 'お尻と体幹を鍛え、長距離でもブレないフォームの体幹軸を作る。', level: 0, maxLevel: 3, parentId: 'run_stretch', x: 1720, y: 970 },
+    { id: 'run_stretch', title: '股関節 ＆ ハムストリング・ストレッチ', category: 'running', icon: '🧘', stage: 'C-1 (可動域)', desc: '股関節と腿裏をケアし、ストライドの伸びと怪我防止を徹底。', level: 0, maxLevel: 3, parentId: 'run_half', x: 1616, y: 1096 },
+    { id: 'run_core', title: '下半身 ＆ 体幹補強筋トレ', category: 'running', icon: '🏋️', stage: 'C-2 (フォーム安定)', desc: 'お尻と体幹を鍛え、長距離でもブレないフォームの体幹軸を作る。', level: 0, maxLevel: 3, parentId: 'run_stretch', x: 1657, y: 952 },
 
     // ==========================================
-    // 3. 🏠 生活習慣 ＆ コンディショニング (真東方向 0°)
+    // 3. 🏠 生活習慣 ＆ コンディショニング (東北東方向 -18°) [5等分レイアウト]
     // ==========================================
     {
       id: 'life_root',
@@ -148,42 +148,286 @@ const DEFAULT_STATE = {
       level: 0,
       maxLevel: 1,
       parentId: 'root_main',
-      x: 1740,
-      y: 1500
+      x: 1709,
+      y: 1432
     },
 
     // ==========================================
-    // 4. 🔤 英語 (English Learning: 南東方向 45°)
+    // 4. 🔤 英語 (TOEIC特化ロードマップ: 南東方向 +54°) [5等分レイアウト]
     // ==========================================
     {
       id: 'eng_root',
-      title: '🔤 英語 (English Learning)',
+      title: '🔤 英語 (TOEIC特化ロードマップ)',
       category: 'english',
       icon: '🔤',
-      stage: 'Step 0 (基礎語学)',
-      desc: '単語・文法・リスニング・英会話で世界を広げる語学ロードマップ。',
+      stage: 'START (語学拠点)',
+      desc: '「語彙」「リスニング」「リーディング」の3系統を極め、TOEIC 900点超えを達成する！',
       level: 0,
       maxLevel: 1,
       parentId: 'root_main',
-      x: 1670,
-      y: 1670
+      x: 1629,
+      y: 1678
+    },
+
+    // --- 【幹・本番スコア: TOEIC公式スコア攻略】 (中央メインストリーム) ---
+    {
+      id: 'toeic_s1',
+      title: 'TOEIC 600点突破 (基礎達成)',
+      category: 'english',
+      icon: '🎯',
+      stage: 'Score-1 (600点)',
+      desc: '条件: 公式公開テスト（または公式IPテスト）で「スコア600点以上」を取得。',
+      level: 0,
+      maxLevel: 1,
+      parentId: 'eng_root',
+      x: 1764,
+      y: 1826
+    },
+    {
+      id: 'toeic_s2',
+      title: 'TOEIC 730点突破 (業務活用)',
+      category: 'english',
+      icon: '⚡',
+      stage: 'Score-2 (730点)',
+      desc: '条件: 公式テストで「スコア730点以上」を取得。',
+      level: 0,
+      maxLevel: 1,
+      parentId: 'toeic_s1',
+      x: 1859,
+      y: 1943
+    },
+    {
+      id: 'toeic_s3',
+      title: 'TOEIC 860点突破 (ハイスコア)',
+      category: 'english',
+      icon: '🔥',
+      stage: 'Score-3 (860点)',
+      desc: '条件: 公式テストで「スコア860点以上」を取得。',
+      level: 0,
+      maxLevel: 1,
+      parentId: 'toeic_s2',
+      x: 1953,
+      y: 2060
+    },
+    {
+      id: 'toeic_s4',
+      title: '👑 TOEIC 900点超え (ビジネス英語マスター)',
+      category: 'english',
+      icon: '👑',
+      stage: 'Score-4 (MASTER)',
+      desc: '条件: 公式テストで「スコア900点以上」の公式認定証（Official Score Certificate）を獲得！',
+      level: 0,
+      maxLevel: 1,
+      parentId: 'toeic_s3',
+      x: 2048,
+      y: 2176
+    },
+
+    // --- 【枝A: 単語・語彙力 (瞬発力)】 ---
+    {
+      id: 'toeic_a1',
+      title: '金フレ 600点レベル (400語)',
+      category: 'english',
+      icon: '📖',
+      stage: 'A-1 (基礎語彙)',
+      desc: '条件: アプリ（abceed等）または単語帳で、600点レベル400語の日本語即答テスト「正解率95%以上」を達成。',
+      level: 0,
+      maxLevel: 1,
+      parentId: 'eng_root',
+      x: 1691,
+      y: 1874
+    },
+    {
+      id: 'toeic_a2',
+      title: '金フレ 730/860点レベル (計500語)',
+      category: 'english',
+      icon: '📚',
+      stage: 'A-2 (重要語彙)',
+      desc: '条件: 730点・860点レベルの計500語で「正解率90%以上」を達成。',
+      level: 0,
+      maxLevel: 1,
+      parentId: 'toeic_a1',
+      x: 1759,
+      y: 2008
+    },
+    {
+      id: 'toeic_a3',
+      title: '金フレ完全制覇 (1000語＋定型表現)',
+      category: 'english',
+      icon: '✨',
+      stage: 'A-3 (語彙マスター)',
+      desc: '条件: 全1000語ランダムテストで95%以上正解 ＆ 派生語・フレーズの完答。',
+      level: 0,
+      maxLevel: 1,
+      parentId: 'toeic_a2',
+      x: 1827,
+      y: 2142
+    },
+
+    // --- 【枝B: リスニング・耳トレ (Part 1〜4)】 ---
+    {
+      id: 'toeic_b1',
+      title: 'Part 1 & 2 短文応答の完全攻略',
+      category: 'english',
+      icon: '🎧',
+      stage: 'B-1 (短文攻略)',
+      desc: '条件: 公式問題集2回分のPart 1 & 2（計62問）で「ミス3問以内」を達成。',
+      level: 0,
+      maxLevel: 1,
+      parentId: 'eng_root',
+      x: 1826,
+      y: 1764
+    },
+    {
+      id: 'toeic_b2',
+      title: 'Part 3 & 4 先読みリズム ＆ シャドーイング',
+      category: 'english',
+      icon: '🗣️',
+      stage: 'B-2 (長文追従)',
+      desc: '条件: 公式問題集の長文リスニング音源を、テキストを見ずに音声の0.5秒遅れで完全シャドーイング（30分通し）を5トラック分完遂。',
+      level: 0,
+      maxLevel: 1,
+      parentId: 'toeic_b1',
+      x: 1943,
+      y: 1859
+    },
+    {
+      id: 'toeic_b3',
+      title: 'リスニング400点〜450点突破',
+      category: 'english',
+      icon: '🏆',
+      stage: 'B-3 (耳トレ完成)',
+      desc: '条件: 公式模試でリスニングセクション「420点以上」を2回連続でクリア。',
+      level: 0,
+      maxLevel: 1,
+      parentId: 'toeic_b2',
+      x: 2060,
+      y: 1953
+    },
+
+    // --- 【枝C: リーディング・速読文法 (Part 5〜7)】 ---
+    {
+      id: 'toeic_c1',
+      title: 'Part 5 文法秒殺 (1問20秒・計30問)',
+      category: 'english',
+      icon: '⚡',
+      stage: 'C-1 (文法秒殺)',
+      desc: '条件: でる1000問等のPart 5模試セット（30問）を「10分以内・正解率85%以上」でクリア。',
+      level: 0,
+      maxLevel: 1,
+      parentId: 'eng_root',
+      x: 1609,
+      y: 1906
+    },
+    {
+      id: 'toeic_c2',
+      title: 'Part 7 長文読解タイムアタック',
+      category: 'english',
+      icon: '⏱️',
+      stage: 'C-2 (長文速読)',
+      desc: '条件: シングル〜トリプルパッセージ（Part 7全54問）を「55分以内・未マーク塗り絵なし」で解き切る。',
+      level: 0,
+      maxLevel: 1,
+      parentId: 'toeic_c1',
+      x: 1648,
+      y: 2051
+    },
+    {
+      id: 'toeic_c3',
+      title: 'リーディング400点突破',
+      category: 'english',
+      icon: '🏆',
+      stage: 'C-3 (速読完成)',
+      desc: '条件: 公式模試でリーディングセクション「380点以上」をクリア。',
+      level: 0,
+      maxLevel: 1,
+      parentId: 'toeic_c2',
+      x: 1686,
+      y: 2195
     },
 
     // ==========================================
-    // 5. 📈 経済 ＆ 資産形成 (Money & Economy: 真南方向 90°)
+    // 5. 📈 アルゴリズム運用 ＆ 経済 (西南西方向 +126°) [5等分レイアウト]
     // ==========================================
     {
       id: 'eco_root',
-      title: '📈 経済 ＆ 資産形成 (Money & Economy)',
+      title: '📈 アルゴリズム運用 ＆ 資産形成 (Money & Economy)',
       category: 'economy',
       icon: '📈',
-      stage: 'Step 0 (マネー基礎)',
-      desc: '家計管理・投資・経済ニュース・資産運用を学ぶ経済ロードマップ。',
+      stage: 'START (運用拠点)',
+      desc: '裁量ゼロの規律確立から月利向上・完全自律FIREを目指すアルゴリズム運用ロードマップ！',
       level: 0,
       maxLevel: 1,
       parentId: 'root_main',
-      x: 1500,
-      y: 1740
+      x: 1371,
+      y: 1678
+    },
+
+    // --- アルゴリズム運用 5段階ロードマップ ---
+    {
+      id: 'algo_step1',
+      title: '実戦基礎・元本防衛フェーズ (Capital Defense)',
+      category: 'economy',
+      icon: '🛡️',
+      stage: 'Step 1 (元本防衛)',
+      desc: 'Lvl.1: 裁量介入ゼロの規律確立\n条件: 1ヶ月間、アルゴのサイン（スイング/デイ）に一切の主観・手動決済を挟まず完全ルール通りに執行完了。\n\nLvl.2: 2回生目標クリア（月利0.5% × 3ヶ月連続）\n条件: 元本100万〜120万円ゾーンにて、最大ドローダウンを想定許容内に抑えつつ、税引後月利0.4%以上を3ヶ月連続で達成。\n\nLvl.3: 下期安定巡航 ＆ 元本160万円到達\n条件: 2回生終了（3月末）時点で、資産1,630,000円ラインへ到達（バイト積立＋運用益の合算防衛）。',
+      level: 0,
+      maxLevel: 3,
+      parentId: 'eco_root',
+      x: 1253,
+      y: 1840
+    },
+    {
+      id: 'algo_step2',
+      title: 'ロジック高度化・月利1.5%フェーズ (Engine Expansion)',
+      category: 'economy',
+      icon: '⚙️',
+      stage: 'Step 2 (月利1.5%)',
+      desc: 'Lvl.1: デイトレ・スイングの並列最適化\n条件: 新しいロジックのバックテスト・検証パイプラインを型化し、定期最適化のフローを確立。\n\nLvl.2: 3回生前半目標（月利1.5% × 3ヶ月連続）\n条件: 税引後実質1.2%を3ヶ月連続クリア（月間利益約2万円ペースを維持）。\n\nLvl.3: 資産200万円突破 ＆ 低ドローダウン維持\n条件: 3回生6ヶ月目時点で月末資産1,998,000円（実質200万円）を達成。',
+      level: 0,
+      maxLevel: 3,
+      parentId: 'algo_step1',
+      x: 1165,
+      y: 1961
+    },
+    {
+      id: 'algo_step3',
+      title: 'トランジション (月利2.5%・高効率運用) (Transition to Pro)',
+      category: 'economy',
+      icon: '🚀',
+      stage: 'Step 3 (月利2.5%)',
+      desc: 'Lvl.1: ロット引き上げ耐性（月利2.5%初達成）\n条件: 運用規模200万円以上で税引後2.0%（月利約4万円）を単月で初達成。\n\nLvl.2: 3回生後半目標（月利2.5% × 6ヶ月完走）\n条件: 3回生7〜12ヶ月目を月利2.5%で安定推移させ、資産250万円ラインを突破。\n\nLvl.3: 4回生完全自律稼働（資産300万円突破）\n条件: バイト代が月2万円まで減っても、月利2.5%（月利益5万〜6万円台）の運用益がメインエンジンとして機能し、資産300万円を超える。',
+      level: 0,
+      maxLevel: 3,
+      parentId: 'algo_step2',
+      x: 1077,
+      y: 2082
+    },
+    {
+      id: 'algo_step4',
+      title: '独立準備・生活費相殺 (Self-Sustaining System)',
+      category: 'economy',
+      icon: '⚡',
+      stage: 'Step 4 (生活費相殺)',
+      desc: 'Lvl.1: 月間運用益が「月6万円」を突破\n条件: 4回生後半、月間の株利益だけで生活費（10万円）の過半数を自給自足。\n\nLvl.2: 卒業時資産340万円到達\n条件: 卒業時（4回生12ヶ月目）に月末資産3,439,000円を達成。\n\nLvl.3: 月利3.0%初達成（税引後2.4% / 月利益8万円超）\n条件: 卒業後の目標利回りである「月利3.0%」を実戦で初クリア。',
+      level: 0,
+      maxLevel: 3,
+      parentId: 'algo_step3',
+      x: 989,
+      y: 2204
+    },
+    {
+      id: 'algo_step5',
+      title: '👑 完全資本自律・FIREシステム (Perpetual Independence)',
+      category: 'economy',
+      icon: '👑',
+      stage: 'Step 5 (MASTER)',
+      desc: 'Lvl.1: キャッシュフロー黒字化（運用益 ＞ 生活費差額）\n条件: 週2バイト代（8.3万円）＋株利益（8.2万円超）で生活費10万円を完全に上回り、資産が毎月自動増加する状態を確立。\n\nLvl.2: 資産400万円突破 ＆ 月利益10万円達成\n条件: 運用益だけで月100,000円を超え、労働収入なしでも生活費が全額賄える水準を突破。\n\nLvl.3: 完全自律運用マスター（資産430万円・自由の確立）\n条件: 卒業後12ヶ月目に資産4,340,000円を達成。どんな相場環境でもドローダウンをコントロールし、一生自分の足で立ち続けられる完全自立システムを完成させる。',
+      level: 0,
+      maxLevel: 3,
+      parentId: 'algo_step4',
+      x: 900,
+      y: 2325
     }
   ],
 
@@ -248,7 +492,7 @@ function initLucideIcons() {
 
 // --- DATA PERSISTENCE & MIGRATION ---
 function loadData() {
-  const CURRENT_KEY = 'rpg_progression_data_v17';
+  const CURRENT_KEY = 'rpg_progression_data_v19';
   const saved = localStorage.getItem(CURRENT_KEY);
   if (saved) {
     try {
@@ -259,7 +503,7 @@ function loadData() {
         if (!parsed.routineCompletions) parsed.routineCompletions = {};
         if (!parsed.player.streak) parsed.player.streak = { current: 0, max: 0, lastDate: '' };
 
-        // Always sync coordinates for default built-in nodes
+        // Always sync coordinates and metadata for default built-in nodes
         const defaultMap = new Map(DEFAULT_STATE.nodes.map(n => [n.id, n]));
         parsed.nodes.forEach(node => {
           if (defaultMap.has(node.id)) {
@@ -270,6 +514,17 @@ function loadData() {
             node.category = defNode.category;
             node.stage = defNode.stage;
             node.title = defNode.title;
+            node.desc = defNode.desc;
+            node.maxLevel = defNode.maxLevel;
+            node.icon = defNode.icon;
+          }
+        });
+
+        // Add any missing default nodes
+        const existingNodeIds = new Set(parsed.nodes.map(n => n.id));
+        DEFAULT_STATE.nodes.forEach(defNode => {
+          if (!existingNodeIds.has(defNode.id)) {
+            parsed.nodes.push(JSON.parse(JSON.stringify(defNode)));
           }
         });
 
@@ -281,7 +536,7 @@ function loadData() {
   }
 
   // Migrate from previous versions without overwriting user deletions
-  const olderKeys = ['v16', 'v15', 'v14', 'v13', 'v12', 'v11', 'v10', 'v9', 'v8', 'v7', 'v6', 'v5'];
+  const olderKeys = ['v18', 'v17', 'v16', 'v15', 'v14', 'v13', 'v12', 'v11', 'v10', 'v9', 'v8', 'v7', 'v6', 'v5'];
   for (const k of olderKeys) {
     const olderSaved = localStorage.getItem(`rpg_progression_data_${k}`);
     if (olderSaved) {
@@ -334,11 +589,13 @@ function loadData() {
   localStorage.removeItem('rpg_progression_data_v14');
   localStorage.removeItem('rpg_progression_data_v15');
   localStorage.removeItem('rpg_progression_data_v16');
+  localStorage.removeItem('rpg_progression_data_v17');
+  localStorage.removeItem('rpg_progression_data_v18');
   return JSON.parse(JSON.stringify(DEFAULT_STATE));
 }
 
 function saveData() {
-  localStorage.setItem('rpg_progression_data_v17', JSON.stringify(state));
+  localStorage.setItem('rpg_progression_data_v19', JSON.stringify(state));
   renderApp();
 }
 
@@ -503,11 +760,25 @@ function calculatePlayerTitle() {
   const { overallAvg, averages } = getCategoryScores();
   const calScore = averages.calisthenics || 0;
   const runScore = averages.running || 0;
+  const ecoScore = averages.economy || 0;
+  const engScore = averages.english || 0;
 
   let newTitle = '【ハーフマラソンランナー】';
   let desc = '25km走や30kmの壁を乗り越え、フルマラソン完走を目指そう。';
 
-  if (runScore >= 95) {
+  if (ecoScore >= 90) {
+    newTitle = '【👑 資本自律の覇者・FIREマスター】';
+    desc = '完全自動化されたアルゴリズム運用で人生の経済的自由を確立した資本家！';
+  } else if (engScore >= 90) {
+    newTitle = '【👑 TOEIC 900マスター・国際派エリート】';
+    desc = '瞬発的な語彙力と耳・速読力を極め、グローバルに通用する英語力を手にした覇者！';
+  } else if (ecoScore >= 50) {
+    newTitle = '【自律アルゴトレーダー】';
+    desc = '月利と規律をコントロールし、着実に資産を拡大するシステム運用者。';
+  } else if (engScore >= 50) {
+    newTitle = '【TOEIC高得点ホルダー】';
+    desc = 'リスニングと読解の基礎を固め、実務レベルのスコアを叩き出す実力者。';
+  } else if (runScore >= 95) {
     newTitle = '【フルマラソン完走者】';
     desc = '42.195kmを駆け抜けた不屈のSub4/完走ランナー！';
   } else if (runScore >= 70) {
@@ -1465,7 +1736,7 @@ function setupEventListeners() {
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {
       if (confirm('初期状態に戻しますか？')) {
-        for (let i = 2; i <= 17; i++) {
+        for (let i = 2; i <= 19; i++) {
           localStorage.removeItem(`rpg_progression_data_v${i}`);
         }
         localStorage.removeItem('rpg_life_data');
@@ -1550,6 +1821,18 @@ function addPresetTree(type) {
     ];
     state.nodes.push(...muNodes);
     alert('🏋️ マッスルアップ5段階ロードマップを追加しました！');
+  } else if (type === 'economy') {
+    const ecoNodeIds = new Set(['algo_step1', 'algo_step2', 'algo_step3', 'algo_step4', 'algo_step5']);
+    const defEcoNodes = DEFAULT_STATE.nodes.filter(n => ecoNodeIds.has(n.id));
+    state.nodes = state.nodes.filter(n => !ecoNodeIds.has(n.id));
+    state.nodes.push(...JSON.parse(JSON.stringify(defEcoNodes)));
+    alert('📈 アルゴリズム運用 5段階ロードマップを追加・復元しました！');
+  } else if (type === 'english') {
+    const engNodeIds = new Set(['toeic_s1', 'toeic_s2', 'toeic_s3', 'toeic_s4', 'toeic_a1', 'toeic_a2', 'toeic_a3', 'toeic_b1', 'toeic_b2', 'toeic_b3', 'toeic_c1', 'toeic_c2', 'toeic_c3']);
+    const defEngNodes = DEFAULT_STATE.nodes.filter(n => engNodeIds.has(n.id));
+    state.nodes = state.nodes.filter(n => !engNodeIds.has(n.id));
+    state.nodes.push(...JSON.parse(JSON.stringify(defEngNodes)));
+    alert('🔤 TOEIC特化英語ロードマップ（幹・枝A・枝B・枝C）を追加・復元しました！');
   } else {
     alert('該当のツリーを追加しました。');
   }
